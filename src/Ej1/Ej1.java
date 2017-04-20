@@ -17,8 +17,7 @@ public class Ej1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner t = new Scanner(new File("hamlet.txt"));
+    public static void main(String[] args) {        
         File f = new File("b.txt");
         if(!f.exists()){
             try {
@@ -28,6 +27,15 @@ public class Ej1 {
             }
         }
         System.out.println(f.exists());
+        try {
+            Scanner lectura = new Scanner(f);
+            while (lectura.hasNext()) {                
+                System.out.println(lectura.next());
+            }
+            lectura.close();
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
     }
     
 }
