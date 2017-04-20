@@ -17,7 +17,7 @@ public class Ej1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {        
+    public static void main(String[] args) throws FileNotFoundException {        
         File f = new File("b.txt");
         if(!f.exists()){
             try {
@@ -26,9 +26,12 @@ public class Ej1 {
                 System.out.println("No es posible acceder al archivo");
             }
         }
-        System.out.println(f.exists());
+        PrintStream escritura = new PrintStream(f);
+        escritura.print("Hola,Diego,Gutierrez");        
+      
         try {
             Scanner lectura = new Scanner(f);
+            lectura.useDelimiter(",");
             while (lectura.hasNext()) {                
                 System.out.println(lectura.next());
             }
